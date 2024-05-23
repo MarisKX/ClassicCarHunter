@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  django:
+    build:
+      context: .
+      args:
+       - DEV=true
+    ports:
+      - "8040:8040"
+    volumes:
+      - ./django_backend:/django_backend
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8040"
